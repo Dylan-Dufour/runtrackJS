@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keylogger Exemple</title>
+</head>
+<body>
+
+    <!-- Textarea avec l'id "keylogger" -->
+    <textarea id="keylogger" rows="10" cols="30"></textarea>
+
+    <script>
+        // Récupérer l'élément textarea
+        const keyloggerTextarea = document.getElementById('keylogger');
+
+        // Fonction pour ajouter une lettre dans le textarea
+        function logKey(event) {
+            const key = event.key;
+
+            // Vérifier si la touche pressée est une lettre (a-z)
+            if (/[a-zA-Z]/.test(key)) {
+                // Si le focus est sur le textarea, ajouter deux fois la lettre
+                if (document.activeElement === keyloggerTextarea) {
+                    keyloggerTextarea.value += key + key;
+                } else {
+                    // Sinon, ajouter la lettre une seule fois
+                    keyloggerTextarea.value += key;
+                }
+            }
+        }
+
+        // Ajouter un écouteur d'événements pour détecter la frappe des touches
+        window.addEventListener('keydown', logKey);
+    </script>
+
+</body>
+</html>

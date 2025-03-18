@@ -1,0 +1,20 @@
+/* Style par défaut */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: black;
+}
+
+/* Style activé par le Code Konami */
+.konami-active {
+    background-color: #F9A825; /* Jaune */
+    color: #1E88E5; /* Bleu */
+}
+
+.konami-active h1 {
+    color: #1E88E5;
+}
