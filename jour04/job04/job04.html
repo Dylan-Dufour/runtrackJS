@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des utilisateurs</title>
+</head>
+<body>
+
+    <h2>Liste des utilisateurs</h2>
+
+    <!-- Tableau pour afficher les utilisateurs -->
+    <table id="usersTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Les utilisateurs seront affichés ici -->
+        </tbody>
+    </table>
+
+    <button id="updateButton">Mettre à jour</button>
+
+    <script>
+        // Ajouter un événement au bouton "update"
+        document.getElementById('updateButton').addEventListener('click', function() {
+            // Utiliser Fetch pour récupérer le fichier utilisateur.json
+            fetch('utilisateur.json') // Remplacer par le chemin correct du fichier JSON
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur lors du chargement du fichier');
+                    }
+                    return response.json(); // Convertir la réponse en JSON
+                })
+                .then(data => {
+                    // Mettre à jour le tableau avec les informations des utilisateurs
+                    updateTable(data);
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                });
+        });
+
+        // Fonction pour mettre à jour le tableau
+        function updateTable(users) {
+            const tableBody = document.querySelector('#usersTable tbody');
+            tableBody.innerHTML = ''; // Vider les lignes existantes du tableau
+
+            // Ajouter une ligne pour chaque utilisateur
+            users.forEach(user => {
+                const tr = document.createElement('tr');
+
+                const tdId = document.createElement('td');
+                tdId.textContent = user.id;
+                tr.appendChild(tdId);
+
+                const tdNom = document.createElement('td');
+                tdNom.textContent = user.nom;
+                tr.appendChild(tdNom);
+
+                const tdPrenom = document.createElement('td');
+                tdPrenom.textContent = user.prenom;
+                tr.appendChild(tdPrenom);
+
+                const tdEmail = document.createElement('td');
+                tdEmail.textContent = user.email;
+                tr.appendChild(tdEmail);
+
+                // Ajouter la ligne au corps du tableau
+                tableBody.appendChild(tr);
+            });
+        }
+    </script>
+
+</body>
+</html>
+[
+    {
+        "id": "1",
+        "nom": "Dupont",
+        "prenom": "Pierre",
+        "email": "pierre.dupont@example.com"
+    },
+    {
+        "id": "2",
+        "nom": "Durand",
+        "prenom": "Marie",
+        "email": "marie.durand@example.com"
+    },
+    {
+        "id": "3",
+        "nom": "Lemoine",
+        "prenom": "Jean",
+        "email": "jean.lemoine@example.com"
+    }
+]

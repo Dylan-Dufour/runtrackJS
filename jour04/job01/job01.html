@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expression Favorite</title>
+</head>
+<body>
+
+    <button id="button">Cliquez ici pour afficher mon expression favorite</button>
+    
+    <div id="content"></div> <!-- Le contenu sera inséré ici -->
+
+    <script>
+        // Ajouter un événement de clic au bouton
+        document.getElementById('button').addEventListener('click', function() {
+            // Utiliser fetch pour récupérer le fichier expression.txt
+            fetch('expression.txt')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur lors du chargement du fichier');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Créer un paragraphe avec le contenu récupéré
+                    const p = document.createElement('p');
+                    p.textContent = data;
+
+                    // Ajouter le paragraphe au corps de la page
+                    document.getElementById('content').appendChild(p);
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                });
+        });
+    </script>
+
+</body>
+</html>
+La vie est belle.

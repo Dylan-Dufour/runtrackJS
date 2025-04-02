@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrer les données</title>
+</head>
+<body>
+
+    <h2>Filtrer les éléments</h2>
+
+    <!-- Formulaire de filtrage -->
+    <form id="filterForm">
+        <label for="id">ID :</label>
+        <input type="text" id="id" name="id" placeholder="Entrez un ID">
+        
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" placeholder="Entrez un nom">
+
+        <label for="type">Type :</label>
+        <select id="type" name="type">
+            <option value="">Sélectionner un type</option>
+            <option value="Poison">Poison</option>
+            <option value="Feu">Feu</option>
+            <option value="Eau">Eau</option>
+        </select>
+
+        <button type="button" id="filterButton">Filtrer</button>
+    </form>
+
+    <h3>Résultats filtrés</h3>
+    <div id="results"></div> 
+
+    <script>
+        // Ajouter un événement de clic au bouton "filtrer"
+        document.getElementById('filterButton').addEventListener('click', function() {
+            // Récupérer les valeurs des champs du formulaire
+            const idValue = document.getElementById('id').value;
+            const nameValue = document.getElementById('name').value;
+            const typeValue = document.getElementById('type').value;
+
+            // Utiliser fetch pour récupérer le fichier JSON
+            fetch('data.json') // Remplacer par le chemin du fichier JSON
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur lors du chargement du fichier');
+                    }
+                    return response.json(); // Convertir la réponse en JSON
+                })
+                .then(data => {
+                    // Filtrer les éléments en fonction des critères
+                    const filteredData = data.filter(item => {
+                        const matchesId = idValue ? item.id.includes(idValue) : true;
+                        const matchesName = nameValue ? item.name.toLowerCase().includes(nameValue.toLowerCase()) : true;
+                        const matchesType = typeValue ? item.type === typeValue : true;
+                        
+                        return matchesId && matchesName && matchesType;
+                    });
+
+                    // Afficher les résultats
+                    displayResults(filteredData);
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    document.getElementById('results').innerHTML = 'Erreur lors de la récupération des données.';
+                });
+        });
+
+        // Fonction pour afficher les résultats filtrés
+        function displayResults(data) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Vider les résultats précédents
+
+            if (data.length === 0) {
+                resultsDiv.innerHTML = 'Aucun résultat trouvé.';
+                return;
+            }
+
+            // Créer une liste d'éléments pour afficher les résultats
+            const ul = document.createElement('ul');
+            data.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `ID: ${item.id}, Nom: ${item.name}, Type: ${item.type}`;
+                ul.appendChild(li);
+            });
+            resultsDiv.appendChild(ul);
+        }
+    </script>
+
+</body>
+</html>
+[
+    {
+        "id": "1",
+        "name": "Bulbizarre",
+        "type": "Poison"
+    },
+    {
+        "id": "2",
+        "name": "Herbizarre",
+        "type": "Poison"
+    },
+    {
+        "id": "3",
+        "name": "Florizarre",
+        "type": "Poison"
+    },
+    {
+        "id": "4",
+        "name": "Salamèche",
+        "type": "Feu"
+    }
+]
