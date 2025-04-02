@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconstituer l'Arc-en-ciel</title>
+    <style>
+        /* Ajouter un peu de style pour les images et les conteneurs */
+        #imageContainer {
+            display: flex;
+            justify-content: space-between;
+            width: 600px;
+            margin-bottom: 20px;
+        }
+        .image {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+        #message {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .win {
+            color: green;
+        }
+        .lose {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Reconstituez l'arc-en-ciel en remettant les images dans le bon ordre !</h2>
+
+    <!-- Conteneur pour les images -->
+    <div id="imageContainer">
+        <!-- Les images seront insérées ici dynamiquement -->
+    </div>
+
+    <!-- Bouton pour mélanger les images -->
+    <button id="shuffleButton">Mélanger les images</button>
+
+    <!-- Message de victoire ou de défaite -->
+    <div id="message"></div>
+
+    <script>
+        // Les URLs des six images de l'arc-en-ciel (à remplacer par vos images)
+        const images = [
+            'red.png',    // Remplacer par les vraies images
+            'orange.png',
+            'yellow.png',
+            'green.png',
+            'blue.png',
+            'purple.png'
+        ];
+
+        const imageContainer = document.getElementById('imageContainer');
+        const shuffleButton = document.getElementById('shuffleButton');
+        const messageElement = document.getElementById('message');
+
+        // Fonction pour afficher les images dans l'ordre actuel
+        function displayImages(imageArray) {
+            imageContainer.innerHTML = ''; // Vider le conteneur avant d'ajouter les images
+            imageArray.forEach((imageSrc, index) => {
+                const imgElement = document.createElement('img');
+                imgElement.src = imageSrc;
+                imgElement.classList.add('image');
+                imgElement.setAttribute('data-index', index);
+                imgElement.addEventListener('click', () => handleImageClick(index)); // Ajouter l'événement pour déplacer l'image
+                imageContainer.appendChild(imgElement);
+            });
+        }
+
+        // Mélanger les images
+        function shuffleImages() {
+            const shuffledImages = [...images];
+            for (let i = shuffledImages.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledImages[i], shuffledImages[j]] = [shuffledImages[j], shuffledImages[i]];
+            }
+            displayImages(shuffledImages);
+        }
+
+        // Gérer le clic sur une image (pour déplacer les images)
+        function handleImageClick(index) {
+            const imgElements = document.querySelectorAll('.image');
+            const clickedImage = imgElements[index];
+
+            // On permet à l'utilisateur de glisser une image dans une autre position
+            imageContainer.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('imageIndex', index); // Enregistrer l'index de l'image
+            });
+
+            imageContainer.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            imageContainer.addEventListener('drop', (e) => {
+                const sourceIndex = parseInt(e.dataTransfer.getData('imageIndex'), 10);
+                const targetIndex = index;
+                
+                // Échanger les images
+                const temp = images[sourceIndex];
+                images[sourceIndex] = images[targetIndex];
+                images[targetIndex] = temp;
+
+                // Mettre à jour l'affichage après l'échange
+                displayImages(images);
+
+                // Vérifier si l'arc-en-ciel est dans le bon ordre
+                checkWin();
+            });
+        }
+
+        // Vérifier si l'arc-en-ciel est dans le bon ordre
+        function checkWin() {
+            const isCorrectOrder = images.every((image, index) => image === [
+                'red.png', 'orange.png', 'yellow.png', 'green.png', 'blue.png', 'purple.png'
+            ][index]);
+
+            if (isCorrectOrder) {
+                messageElement.textContent = "Vous avez gagné !";
+                messageElement.classList.add('win');
+                messageElement.classList.remove('lose');
+            } else {
+                messageElement.textContent = "Vous avez perdu !";
+                messageElement.classList.add('lose');
+                messageElement.classList.remove('win');
+            }
+        }
+
+        // Initialisation de l'affichage des images et de l'événement pour le bouton
+        shuffleButton.addEventListener('click', shuffleImages);
+        displayImages(images);  // Afficher les images dans l'ordre initial
+    </script>
+
+</body>
+</html>

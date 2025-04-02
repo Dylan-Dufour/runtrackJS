@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afficher et cacher du texte</title>
+</head>
+<body>
+
+    <!-- Bouton pour afficher le texte -->
+    <button id="showButton">Afficher le texte</button>
+
+    <!-- Paragraphe contenant le texte à afficher -->
+    <p id="text" style="display:none;">
+        "Les logiciels et les cathédrales, c'est un peu la même chose - d'abord, on les construit, ensuite, on prie."
+    </p>
+
+    <!-- Bouton pour cacher le texte -->
+    <button id="hideButton">Cacher le texte</button>
+
+    <script>
+        // Sélectionner les éléments du DOM
+        const showButton = document.getElementById('showButton');
+        const hideButton = document.getElementById('hideButton');
+        const textParagraph = document.getElementById('text');
+
+        // Ajouter un événement au bouton "Afficher le texte"
+        showButton.addEventListener('click', function() {
+            textParagraph.style.display = 'block';  // Afficher le texte
+        });
+
+        // Ajouter un événement au bouton "Cacher le texte"
+        hideButton.addEventListener('click', function() {
+            textParagraph.style.display = 'none';  // Cacher le texte
+        });
+    </script>
+
+</body>
+</html>
