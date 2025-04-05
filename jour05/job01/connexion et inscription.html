@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h2>Connexion</h2>
+    <form id="connexionForm">
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+        <div id="emailError" class="error"></div>
+
+        <label for="motdepasse">Mot de passe :</label>
+        <input type="password" id="motdepasse" name="motdepasse" required>
+        <div id="motdepasseError" class="error"></div>
+
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <script>
+        document.getElementById('connexionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            validateForm();
+        });
+
+        function validateForm() {
+            let email = document.getElementById('email').value;
+            let motdepasse = document.getElementById('motdepasse').value;
+            let valid = true;
+
+            // Validation email
+            let emailError = document.getElementById('emailError');
+            if (!email || !/\S+@\S+\.\S+/.test(email)) {
+                emailError.textContent = 'Veuillez entrer un email valide.';
+                valid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            // Validation mot de passe
+            let motdepasseError = document.getElementById('motdepasseError');
+            if (!motdepasse || motdepasse.length < 6) {
+                motdepasseError.textContent = 'Le mot de passe doit comporter au moins 6 caractères.';
+                valid = false;
+            } else {
+                motdepasseError.textContent = '';
+            }
+
+            if (valid) {
+                alert('Connexion réussie !');
+                // Effectuer la soumission réelle du formulaire ici (avec AJAX, par exemple).
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h2>Inscription</h2>
+    <form id="inscriptionForm">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+        <div id="nomError" class="error"></div>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+        <div id="prenomError" class="error"></div>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+        <div id="emailError" class="error"></div>
+
+        <label for="motdepasse">Mot de passe :</label>
+        <input type="password" id="motdepasse" name="motdepasse" required>
+        <div id="motdepasseError" class="error"></div>
+
+        <label for="adresse">Adresse :</label>
+        <input type="text" id="adresse" name="adresse" required>
+        <div id="adresseError" class="error"></div>
+
+        <label for="codepostal">Code postal :</label>
+        <input type="text" id="codepostal" name="codepostal" required>
+        <div id="codepostalError" class="error"></div>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+
+    <script>
+        document.getElementById('inscriptionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            validateForm();
+        });
+
+        function validateForm() {
+            let nom = document.getElementById('nom').value;
+            let prenom = document.getElementById('prenom').value;
+            let email = document.getElementById('email').value;
+            let motdepasse = document.getElementById('motdepasse').value;
+            let adresse = document.getElementById('adresse').value;
+            let codepostal = document.getElementById('codepostal').value;
+            let valid = true;
+
+            // Validation nom
+            let nomError = document.getElementById('nomError');
+            if (!nom) {
+                nomError.textContent = 'Veuillez entrer votre nom.';
+                valid = false;
+            } else {
+                nomError.textContent = '';
+            }
+
+            // Validation prénom
+            let prenomError = document.getElementById('prenomError');
+            if (!prenom) {
+                prenomError.textContent = 'Veuillez entrer votre prénom.';
+                valid = false;
+            } else {
+                prenomError.textContent = '';
+            }
+
+            // Validation email
+            let emailError = document.getElementById('emailError');
+            if (!email || !/\S+@\S+\.\S+/.test(email)) {
+                emailError.textContent = 'Veuillez entrer un email valide.';
+                valid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            // Validation mot de passe
+            let motdepasseError = document.getElementById('motdepasseError');
+            if (!motdepasse || motdepasse.length < 6) {
+                motdepasseError.textContent = 'Le mot de passe doit comporter au moins 6 caractères.';
+                valid = false;
+            } else {
+                motdepasseError.textContent = '';
+            }
+
+            // Validation adresse
+            let adresseError = document.getElementById('adresseError');
+            if (!adresse) {
+                adresseError.textContent = 'Veuillez entrer votre adresse.';
+                valid = false;
+            } else {
+                adresseError.textContent = '';
+            }
+
+            // Validation code postal
+            let codepostalError = document.getElementById('codepostalError');
+            if (!codepostal || !/^\d{5}$/.test(codepostal)) {
+                codepostalError.textContent = 'Le code postal doit être composé de 5 chiffres.';
+                valid = false;
+            } else {
+                codepostalError.textContent = '';
+            }
+
+            if (valid) {
+                alert('Inscription réussie !');
+                // Effectuer la soumission réelle du formulaire ici (avec AJAX, par exemple).
+            }
+        }
+    </script>
+</body>
+</html>
