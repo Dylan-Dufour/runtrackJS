@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de Compte</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header avec une navigation -->
+    <header class="bg-dark text-white py-3">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="job01.html">Mon Site</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="inscription.html">Inscription</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="connexion.html">Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Rechercher</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Section du formulaire de création de compte -->
+    <section class="container my-5">
+        <h2>Créer un compte</h2>
+        <form action="#" method="POST">
+            <!-- Civilité -->
+            <div class="mb-3">
+                <label for="civilite" class="form-label">Civilité</label>
+                <div>
+                    <input type="radio" id="monsieur" name="civilite" value="Monsieur" class="form-check-input">
+                    <label for="monsieur" class="form-check-label">Monsieur</label>
+                </div>
+                <div>
+                    <input type="radio" id="madame" name="civilite" value="Madame" class="form-check-input">
+                    <label for="madame" class="form-check-label">Madame</label>
+                </div>
+            </div>
+
+            <!-- Prénom -->
+            <div class="mb-3">
+                <label for="prenom" class="form-label">Prénom</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" required>
+            </div>
+
+            <!-- Nom -->
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom" required>
+            </div>
+
+            <!-- Adresse -->
+            <div class="mb-3">
+                <label for="adresse" class="form-label">Adresse</label>
+                <input type="text" class="form-control" id="adresse" name="adresse" required>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Adresse Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <!-- Mot de passe -->
+            <div class="mb-3">
+                <label for="motdepasse" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="motdepasse" name="motdepasse" required>
+            </div>
+
+            <!-- Validation du mot de passe -->
+            <div class="mb-3">
+                <label for="validation_motdepasse" class="form-label">Validation du mot de passe</label>
+                <input type="password" class="form-control" id="validation_motdepasse" name="validation_motdepasse" required>
+            </div>
+
+            <!-- Passions -->
+            <div class="mb-3">
+                <label class="form-label">Choisissez vos passions</label>
+                <div>
+                    <input type="checkbox" id="informatique" name="passions" value="Informatique" class="form-check-input">
+                    <label for="informatique" class="form-check-label">Informatique</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="voyages" name="passions" value="Voyages" class="form-check-input">
+                    <label for="voyages" class="form-check-label">Voyages</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="sport" name="passions" value="Sport" class="form-check-input">
+                    <label for="sport" class="form-check-label">Sport</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="lecture" name="passions" value="Lecture" class="form-check-input">
+                    <label for="lecture" class="form-check-label">Lecture</label>
+                </div>
+            </div>
+
+            <!-- Bouton de validation -->
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Valider</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Footer avec les liens -->
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <ul class="list-unstyled">
+                <li><a href="job01.html" class="text-white">Accueil</a></li>
+                <li><a href="inscription.html" class="text-white">Inscription</a></li>
+                <li><a href="connexion.html" class="text-white">Connexion</a></li>
+                <li><a href="index.html" class="text-white">Rechercher</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Intégration de Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

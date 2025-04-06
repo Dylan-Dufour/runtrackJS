@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page avec Materialize</title>
+
+    <!-- Lien vers Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+    <!-- Lien vers Materialize Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/material-icons.min.css" rel="stylesheet">
+
+    <style>
+        /* Style personnalisé */
+        .card-image img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .logo {
+            max-width: 100px;
+        }
+        .header-nav {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header avec logo et liens -->
+    <nav class="blue">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo"><img src="https://www.educatel.fr/wp-content/uploads/2021/04/metier-developpeur-web-1.jpg" alt="Logo" class="logo"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down header-nav">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Corps de la page avec des cartes -->
+    <div class="container section">
+        <div class="row">
+
+            <!-- Carte 1 : Petite -->
+            <div class="col s12 m6 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://img.freepik.com/vecteurs-premium/ensemble-icones-pour-site-web-site-web-web_47008-6.jpg" alt="Image">
+                        <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <p>Logo Websites.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 2 : Moyenne -->
+            <div class="col s12 m6 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://th.bing.com/th/id/OIP.kbcEHqGGIHPnau7N2D1pWAHaEM?rs=1&pid=ImgDetMain" alt="Image">
+                        <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <p>Logo HTML et css.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 3 : Grande -->
+            <div class="col s12 m6 l4">
+                <div class="card large">
+                    <div class="card-image">
+                        <img src="https://www.shutterstock.com/image-vector/vector-collection-web-development-shield-260nw-2061835454.jpg" alt="Image">
+                        <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <p>Tous les logo dans le developpement web.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte 4 : Grande -->
+            <div class="col s12 m6 l4">
+                <div class="card large">
+                    <div class="card-image">
+                        <img src="https://f.hellowork.com/blogdumoderateur/2022/09/outils-developpeurs-debutants.jpg" alt="Image">
+                        <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <p>Codage Python.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Lien vers Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        // Initialisation de Materialize
+        document.addEventListener('DOMContentLoaded', function() {
+            M.AutoInit();
+        });
+    </script>
+</body>
+</html>

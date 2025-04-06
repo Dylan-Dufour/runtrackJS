@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site</title>
+
+    <!-- Ajouter le CDN de Materialize CSS version 1.0.0 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+    <!-- Ajouter le CDN Materialize Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/material-icons/4.0.0/iconfont/material-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header avec des classes Materialize -->
+    <header class="blue darken-2 center-align">
+        <div class="container">
+            <h1 class="white-text">Bienvenue sur mon site !</h1>
+            <p class="white-text"></p>
+        </div>
+    </header>
+
+    <!-- Formulaire avec des classes Materialize et icônes -->
+    <main>
+        <div class="container">
+            <h3 class="center-align">Formulaire d'inscription</h3>
+
+            <div class="row">
+                <form class="col s12">
+                    <!-- Champ de nom avec une icône -->
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix"></i>
+                        <input id="name" type="text" class="validate">
+                        <label for="name">Nom</label>
+                    </div>
+
+                    <!-- Champ d'email avec une icône -->
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix"></i>
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+
+                    <!-- Champ de mot de passe avec une icône -->
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix"></i>
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Mot de passe</label>
+                    </div>
+
+                    <!-- Champ de confirmation de mot de passe avec une icône -->
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix"></i>
+                        <input id="confirm_password" type="password" class="validate">
+                        <label for="confirm_password">Confirmer le mot de passe</label>
+                    </div>
+
+                    <!-- Bouton de soumission du formulaire -->
+                    <div class="center-align">
+                        <button type="submit" class="btn blue waves-effect waves-light">S'inscrire</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Ajouter le CDN de Materialize JS pour la fonctionnalité interactive -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+
+</html>
