@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de création de compte</title>
+
+    <!-- Lien vers Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+    <!-- Lien vers Materialize Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/material-icons.min.css" rel="stylesheet">
+
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        footer {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header avec navigation -->
+    <header>
+        <nav class="blue">
+            <div class="nav-wrapper container">
+                <a href="#!" class="brand-logo">MonSite</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="inscription.html">Inscription</a></li>
+                    <li><a href="connexion.html">Connexion</a></li>
+                    <li><a href="rechercher.html">Rechercher</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Section avec formulaire de création de compte -->
+    <div class="container">
+        <h3>Création de compte</h3>
+        <form action="index.html" method="post">
+            <!-- Civilité -->
+            <div class="input-field">
+                <label></label>
+                <p>
+                    <label>
+                        <input name="civilite" type="radio" value="mr" />
+                        <span>Monsieur</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input name="civilite" type="radio" value="mme" />
+                        <span>Mme</span>
+                    </label>
+                </p>
+            </div>
+
+            <!-- Prénom -->
+            <div class="input-field">
+                <input type="text" id="prenom" name="prenom" required>
+                <label for="prenom">Prénom</label>
+            </div>
+
+            <!-- Nom -->
+            <div class="input-field">
+                <input type="text" id="nom" name="nom" required>
+                <label for="nom">Nom</label>
+            </div>
+
+            <!-- Adresse -->
+            <div class="input-field">
+                <input type="text" id="adresse" name="adresse" required>
+                <label for="adresse">Adresse</label>
+            </div>
+
+            <!-- Adresse Email -->
+            <div class="input-field">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Adresse Email</label>
+            </div>
+
+            <!-- Mot de passe -->
+            <div class="input-field">
+                <input type="password" id="motdepasse" name="motdepasse" required>
+                <label for="motdepasse">Mot de passe</label>
+            </div>
+
+            <!-- Validation mot de passe -->
+            <div class="input-field">
+                <input type="password" id="confirm_motdepasse" name="confirm_motdepasse" required>
+                <label for="confirm_motdepasse">Confirmer le mot de passe</label>
+            </div>
+
+            <!-- Passions -->
+            <p>Passions :</p>
+            <p>
+                <label>
+                    <input type="checkbox" name="informatique" value="informatique" />
+                    <span>Informatique</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" name="voyages" value="voyages" />
+                    <span>Voyages</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" name="sport" value="sport" />
+                    <span>Sport</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" name="lecture" value="lecture" />
+                    <span>Lecture</span>
+                </label>
+            </p>
+
+            <!-- Bouton de validation -->
+            <div class="input-field">
+                <button type="submit" class="btn blue">Créer un compte</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer blue">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">MonSite</h5>
+                    <p class="grey-text text-lighten-4">Bienvenue sur notre site de création de comptes.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Liens</h5>
+                    <ul>
+                        <li><a class="white-text" href="index.html">Accueil</a></li>
+                        <li><a class="white-text" href="index.html">Inscription</a></li>
+                        <li><a class="white-text" href="index.html">Connexion</a></li>
+                        <li><a class="white-text" href="index.html">Rechercher</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2025 MonSite. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lien vers Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        // Initialisation de Materialize
+        document.addEventListener('DOMContentLoaded', function() {
+            M.AutoInit();
+        });
+    </script>
+</body>
+</html>

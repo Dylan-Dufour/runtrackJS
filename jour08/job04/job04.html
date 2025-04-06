@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire Moderne avec Tailwind CSS</title>
+  <!-- Lien vers Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lien vers les icônes FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-semibold text-center mb-6 text-gray-800">Formulaire de Contact</h2>
+    <form action="#" method="POST">
+      <!-- Champ Nom -->
+      <div class="mb-4 relative">
+        <label for="nom" class="block text-gray-700 font-medium mb-2">Nom</label>
+        <div class="flex items-center border-2 border-gray-300 rounded-lg p-2 focus-within:border-blue-500 focus-within:shadow-lg">
+          <i class="fas fa-user text-gray-500 mr-3"></i>
+          <input type="text" id="nom" name="nom" placeholder="Votre nom" class="w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg opacity-75 hover:opacity-100 transition duration-300" required>
+        </div>
+      </div>
+
+      <!-- Champ Email -->
+      <div class="mb-4 relative">
+        <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+        <div class="flex items-center border-2 border-gray-300 rounded-lg p-2 focus-within:border-blue-500 focus-within:shadow-lg">
+          <i class="fas fa-envelope text-gray-500 mr-3"></i>
+          <input type="email" id="email" name="email" placeholder="Votre email" class="w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg opacity-75 hover:opacity-100 transition duration-300" required>
+        </div>
+      </div>
+
+      <!-- Champ Message -->
+      <div class="mb-4 relative">
+        <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+        <div class="flex items-center border-2 border-gray-300 rounded-lg p-2 focus-within:border-blue-500 focus-within:shadow-lg">
+          <i class="fas fa-comment-dots text-gray-500 mr-3"></i>
+          <textarea id="message" name="message" placeholder="Votre message" class="w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg opacity-75 hover:opacity-100 transition duration-300" rows="4" required></textarea>
+        </div>
+      </div>
+
+      <!-- Bouton Envoyer -->
+      <div class="mt-6">
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500">Envoyer</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
