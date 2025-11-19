@@ -1,0 +1,4 @@
+/* Styles minimes pour la mise en page */
+body { background: #f8f9fa; }
+#jumbotron { min-height: 140px; }
+#rightList a { cursor: pointer; }
