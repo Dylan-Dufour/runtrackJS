@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Job 02 Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="bg-light">
+
+<div class="container py-4">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4 p-3">
+    <a id="accueilLink" class="navbar-brand" href="#">Accueil</a>
+  </nav>
+
+  <!-- JUMBOTRON -->
+  <div class="p-5 mb-4 bg-white shadow-sm rounded">
+    <h1 class="display-5 fw-bold">Bienvenue sur ma page Bootstrap</h1>
+    <p id="jumbotronText" class="col-md-8 fs-4">
+      Ceci est un texte qui sera remplacé par la pagination ou par le bouton "Rebooter le Monde".
+    </p>
+
+    <!-- Spinner -->
+    <div class="d-flex align-items-center mb-3">
+      <div id="mainSpinner" class="spinner-border text-primary me-3" role="status"></div>
+      <button id="rebootBtn" class="btn btn-danger">Rebooter le Monde</button>
+    </div>
+
+    <!-- PAGINATION -->
+    <nav>
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link pageChange" data-text="Contenu page 1" href="#">1</a></li>
+        <li class="page-item"><a class="page-link pageChange" data-text="Contenu page 2" href="#">2</a></li>
+        <li class="page-item"><a class="page-link pageChange" data-text="Contenu page 3" href="#">3</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="row">
+
+    <!-- LIST GROUP + PROGRESS BAR -->
+    <div class="col-md-4">
+
+      <ul class="list-group mb-3" id="clickList">
+        <li class="list-group-item active">Element 1</li>
+        <li class="list-group-item">Élément 2</li>
+        <li class="list-group-item">Élément 3</li>
+      </ul>
+
+      <!-- PROGRESS BAR + BUTTONS -->
+      <div class="d-flex align-items-center mb-4">
+        <button id="progressMinus" class="btn btn-secondary me-2">←</button>
+        <div class="progress flex-grow-1">
+          <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 30%"></div>
+        </div>
+        <button id="progressPlus" class="btn btn-secondary ms-2">→</button>
+      </div>
+
+      <!-- FORM 1 (D,G,C) -->
+      <form id="formDGC" class="bg-white p-3 shadow-sm rounded">
+        <h5>Formulaire DGC</h5>
+        <input id="dgcNom" type="text" class="form-control mb-2" placeholder="Nom">
+        <input id="dgcPrenom" type="text" class="form-control mb-2" placeholder="Prénom">
+        <input id="dgcEmail" type="email" class="form-control mb-2" placeholder="Email">
+      </form>
+    </div>
+
+    <!-- CARD PAPILLON + FORM LOGIN -->
+    <div class="col-md-8">
+
+      <div class="card mb-4">
+        <img src="assets/papillon.jpg" height="200" width="200" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Papillon</h5>
+          <p class="card-text">Achetez un magnifique papillon imaginaire.</p>
+          <button id="buyBtn" class="btn btn-primary">Acheter</button>
+        </div>
+      </div>
+
+      <!-- FORM LOGIN -->
+      <form id="loginForm" class="bg-white p-3 shadow-sm rounded">
+        <h5>Connexion</h5>
+        <input id="loginEmail" type="email" class="form-control mb-2" placeholder="Email" required>
+        <input id="loginPassword" type="password" class="form-control mb-2" placeholder="Mot de passe" required>
+        <button type="submit" class="btn btn-success">Valider</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODALE PAPILLON -->
+<div class="modal fade" id="buyModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Achat confirmé</h5></div>
+      <div class="modal-body">Vous venez d’acheter un papillon !</div>
+      <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALE DGC -->
+<div class="modal fade" id="dgcModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title">Informations DGC</h5></div>
+      <div class="modal-body" id="dgcContent"></div>
+      <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------------------------
+   1. Lien Accueil vers La Plateforme
+----------------------------*/
+$("#accueilLink").click(() => {
+    window.location.href = "https://laplateforme.io";
+});
+
+/* ---------------------------
+   2. Achat Papillon → Modale
+----------------------------*/
+$("#buyBtn").click(() => {
+    new bootstrap.Modal("#buyModal").show();
+});
+
+/* ---------------------------
+   3. Rebooter le Monde → citation Blade Runner
+----------------------------*/
+const bladeQuotes = [
+  "J'ai vu des choses que vous ne croiriez pas.",
+  "Tous ces moments se perdront dans l'oubli, comme des larmes sous la pluie.",
+  "C'est dur de vivre dans la peur."
+];
+
+$("#rebootBtn").click(() => {
+    const quote = bladeQuotes[Math.floor(Math.random() * bladeQuotes.length)];
+    $("#jumbotronText").text(quote);
+});
+
+/* ---------------------------
+   4. Pagination → modifie jumbotron
+----------------------------*/
+$(".pageChange").click(function () {
+    $("#jumbotronText").text($(this).data("text"));
+});
+
+/* ---------------------------
+   5. Liste groupée → active
+----------------------------*/
+$("#clickList .list-group-item").click(function () {
+    $("#clickList .list-group-item").removeClass("active");
+    $(this).addClass("active");
+});
+
+/* ---------------------------
+   6. Progress Bar → +/- 10%
+----------------------------*/
+$("#progressMinus").click(() => {
+    let w = parseInt($("#progressBar").css("width"));
+    let max = $("#progressBar").parent().width();
+    let percent = (w / max) * 100 - 10;
+    percent = Math.max(0, percent);
+    $("#progressBar").css("width", percent + "%");
+});
+
+$("#progressPlus").click(() => {
+    let w = parseInt($("#progressBar").css("width"));
+    let max = $("#progressBar").parent().width();
+    let percent = (w / max) * 100 + 10;
+    percent = Math.min(100, percent);
+    $("#progressBar").css("width", percent + "%");
+});
+
+/* ---------------------------
+   7. Touche D + G + C → modale formulaire
+----------------------------*/
+let keySeq = "";
+
+$(document).keydown(function (e) {
+    keySeq += e.key.toUpperCase();
+
+    if (keySeq.endsWith("DGC")) {
+        $("#dgcContent").html(`
+            Nom : ${$("#dgcNom").val()}<br>
+            Prénom : ${$("#dgcPrenom").val()}<br>
+            Email : ${$("#dgcEmail").val()}
+        `);
+        new bootstrap.Modal("#dgcModal").show();
+        keySeq = "";
+    }
+});
+
+/* ---------------------------
+   8. Login → change couleur spinner
+----------------------------*/
+$("#loginForm").submit(function (e) {
+    e.preventDefault();
+
+    const colors = ["primary", "secondary", "success", "danger", "warning", "info"];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    $("#mainSpinner")
+      .removeClass("text-primary text-secondary text-success text-danger text-warning text-info")
+      .addClass("text-" + randomColor);
+});
+</script>
+
+</body>
+</html>
