@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - La Plateforme_</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/admin.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Gestion des utilisateurs</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="login.html">Connexion</a></li>
+                <li><a href="calendar.html">Calendrier</a></li>
+                <li><a href="moderation.html">Modération</a></li>
+                <li><a href="admin.html">Administration</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Ajouter un utilisateur</h2>
+            <form id="addUserForm">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="role">Rôle:</label>
+                <select id="role" required>
+                    <option value="moderator">Modérateur</option>
+                    <option value="admin">Administrateur</option>
+                </select>
+                <button type="submit">Ajouter</button>
+            </form>
+        </section>
+        <section>
+            <h2>Liste des utilisateurs</h2>
+            <table id="userList">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Rôle</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="user-list">
+                    <!-- Les utilisateurs seront ajoutés ici dynamiquement -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 La Plateforme_</p>
+    </footer>
+</body>
+</html>

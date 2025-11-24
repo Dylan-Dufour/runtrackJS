@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maquette Responsive</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .box {
-      background-color: #007bff;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      border: 1px solid #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Plateforme_ - Accueil</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    <link rel="stylesheet" href="styles/calendar.css">
+    <link rel="stylesheet" href="styles/moderation.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-  <div class="container my-4">
-    <div class="row">
-      <!-- Colonne 1 -->
-      <div class="col-12 col-md-6 col-lg-4 mb-3">
-        <div class="box">Colonne 1</div>
-      </div>
-      <!-- Colonne 2 -->
-      <div class="col-12 col-md-6 col-lg-4 mb-3">
-        <div class="box">Colonne 2</div>
-      </div>
-      <!-- Colonne 3 -->
-      <div class="col-12 col-md-12 col-lg-4 mb-3">
-        <div class="box">Colonne 3</div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">La Plateforme_</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="login.html">Connexion</a></li>
+                    <li><a href="calendar.html">Calendrier</a></li>
+                    <li><a href="moderation.html">Modération</a></li>
+                    <li><a href="admin.html">Administration</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Bienvenue sur La Plateforme_</h1>
+            <p>Anticipez le nombre d'étudiants présents dans nos locaux.</p>
+            <p>Veuillez vous connecter pour accéder à votre espace.</p>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">La Plateforme_</h5>
+                    <p class="grey-text text-lighten-4">Votre avenir commence ici.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/moderation.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier - La Plateforme_</title>
+    <link rel="stylesheet" href="styles/calendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">La Plateforme_</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="login.html">Connexion</a></li>
+                <li><a href="moderation.html">Modération</a></li>
+                <li><a href="admin.html">Administration</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Calendrier de Présence</h1>
+        <div id="calendar"></div>
+        <form id="presence-request-form">
+            <div class="input-field">
+                <input type="text" id="date" required>
+                <label for="date">Date de présence</label>
+            </div>
+            <div class="input-field">
+                <textarea id="reason" class="materialize-textarea" required></textarea>
+                <label for="reason">Raison de la présence</label>
+            </div>
+            <button type="submit" class="btn">Demander la présence</button>
+        </form>
+    </div>
+
+    <script src="js/calendar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
